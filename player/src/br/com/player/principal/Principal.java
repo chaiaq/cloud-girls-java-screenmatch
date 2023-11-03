@@ -1,5 +1,6 @@
 package br.com.player.principal;
 
+import br.com.player.modelos.Favoritas;
 import br.com.player.modelos.Musica;
 import br.com.player.modelos.Podcast;
 
@@ -13,21 +14,14 @@ public class Principal {
 		
 		inTheEnd.exibeFichaTecnica();
 		
-		inTheEnd.classifica(8);
-		inTheEnd.classifica(10);
-		inTheEnd.classifica(5);
-		
-		inTheEnd.curte();
-		inTheEnd.curte();
-		inTheEnd.curte();
-		
-		inTheEnd.reproduz();
-		inTheEnd.reproduz();
-		inTheEnd.reproduz();
-		inTheEnd.reproduz();
-		inTheEnd.reproduz();
-		
-		
+		for (int i = 0; i < 10; i++) {
+			inTheEnd.curte();
+		}
+
+		for (int i = 0; i < 1000; i++) {
+			inTheEnd.reproduz();
+		}
+				
 		inTheEnd.exibeFichaTecnica();
 		
 		Podcast naoInviabilize = new Podcast();
@@ -38,18 +32,19 @@ public class Principal {
 		
 		naoInviabilize.exibeFichaTecnica();
 		
-		naoInviabilize.classifica(5);
-		naoInviabilize.classifica(10);
+		for (int i = 0; i < 500; i++) {
+			naoInviabilize.curte();
+		}
 		
-		naoInviabilize.curte();
-		naoInviabilize.curte();
-		
-		naoInviabilize.reproduz();
-		naoInviabilize.reproduz();
-		naoInviabilize.reproduz();
-		naoInviabilize.reproduz();
+		for (int i = 0; i < 5000; i++) {
+			naoInviabilize.reproduz();
+		}
 		
 		naoInviabilize.exibeFichaTecnica();
+		
+		Favoritas favoritas = new Favoritas();
+		favoritas.inclui(naoInviabilize);
+		favoritas.inclui(inTheEnd);
 		
 	}
 }

@@ -17,7 +17,6 @@ public class Musica extends Audio {
 		this.album = album;
 	}
 	
-	@Override
 	public void exibeFichaTecnica() {
 		System.out.println("Nome da música: " + getTitulo());
 		System.out.println("Duração(minutos): " + getDuracao());
@@ -25,8 +24,16 @@ public class Musica extends Audio {
 		System.out.println("Álbum: " + getAlbum());
 		System.out.println("Total de reproduções: " + pegaReproducoes());
 		System.out.println("Número de curtidas: " + pegaCurtidas());
-		System.out.println("Classificação: " + pegaClassificacao());
+		System.out.println("Classificação: " + getClassificacao());
 	}
 	
+	@Override
+	public double getClassificacao() {
+		if (this.pegaReproducoes() > 2000) {
+			return 10;
+		} else {
+			return 7;
+		}
+	}
 	
 }

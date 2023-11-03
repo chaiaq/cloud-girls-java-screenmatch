@@ -4,10 +4,8 @@ public class Audio {
 	private String titulo;
 	private double duracao;
 	private int totalDeReproducoes;
-	private int curtidas;
-	private int totalDeClassificacoes;
-	private double somaDasClassificacoes;
 	private int totalDeCurtidas;
+	private double classificacao;
 	
 	public String getTitulo() {
 		return titulo;
@@ -24,35 +22,15 @@ public class Audio {
 	public int getTotalDeReproducoes() {
 		return totalDeReproducoes;
 	}
-	public int getCurtidas() {
-		return curtidas;
+ 	
+	public double getClassificacao() {
+		return classificacao;
 	}
-	
-	public void exibeFichaTecnica() {
-		System.out.println("Nome da música: " + titulo);
-		System.out.println("Duração(minutos): " + duracao);
-		System.out.println("Total de reproduções: " + pegaReproducoes());
-		System.out.println("Número de curtidas: " + pegaCurtidas());
-		System.out.println("Classificação: " + pegaClassificacao());
-	}
-	
-	// metodo para classificação
-	public void classifica(double nota) {
-		somaDasClassificacoes += nota;
-		totalDeClassificacoes++;
-	}
-	
-	public double pegaClassificacao() {
-		if (totalDeClassificacoes > 0) {
-			return somaDasClassificacoes / totalDeClassificacoes;
-		} else {
-			return 0;
-		}
-	}
+
 	
 	// metodo para curtir
 	public void curte() {
-		totalDeCurtidas++;
+		this.totalDeCurtidas++;
 	}
 	
 	public int pegaCurtidas() {
@@ -61,7 +39,7 @@ public class Audio {
 	
 	// metodo para reproduzir
 	public void reproduz() {
-		totalDeReproducoes++;
+		this.totalDeReproducoes++;
 	}
 	
 	public int pegaReproducoes() {
