@@ -2,7 +2,7 @@ package br.com.alura.screematch.modelos;
 
 public class Titulo {
 	// a classe vai especificar o que
-	// todos os filmes têm em comum
+	// todos os filmes e series têm em comum
 	// dentro do sistema criado
 	private String nome;
 	private int anoDeLancamento;
@@ -10,6 +10,12 @@ public class Titulo {
 	private double somaDasAvaliacoes;
 	private int totalDeAvaliacoes;
 	private int duracaoEmMinutos;
+	
+	// criando um construtor personalizado:
+	public Titulo (String nome, int anoDeLancamento) {
+		this.nome = nome;
+		this.anoDeLancamento = anoDeLancamento;
+	}
 	
 	public int getTotalDeAvaliacoes() {
 		return totalDeAvaliacoes;
