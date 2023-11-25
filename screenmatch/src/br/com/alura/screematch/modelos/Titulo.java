@@ -1,6 +1,6 @@
 package br.com.alura.screematch.modelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
 	// a classe vai especificar o que
 	// todos os filmes e series têm em comum
 	// dentro do sistema criado
@@ -69,4 +69,10 @@ public class Titulo {
 	public double pegaMedia() {
 		return somaDasAvaliacoes / totalDeAvaliacoes;
 	}
+
+    @Override
+    public int compareTo(Titulo outroTitulo) {
+        return this.getNome().compareTo(outroTitulo.getNome());
+    }
+
 }

@@ -44,4 +44,9 @@ public class Serie extends Titulo {
 		// irá sobrescrever o valor original da classe mãe
 	}
 	
+	@Override
+	public String toString() {
+		return "Série: " + this.getNome() + "(" + this.getAnoDeLancamento() + ")";
+	}
+	
 }
