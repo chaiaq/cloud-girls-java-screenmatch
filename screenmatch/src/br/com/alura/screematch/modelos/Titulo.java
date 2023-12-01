@@ -1,10 +1,16 @@
 package br.com.alura.screematch.modelos;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Titulo implements Comparable<Titulo> {
 	// a classe vai especificar o que
 	// todos os filmes e series têm em comum
 	// dentro do sistema criado
+	
+	@SerializedName("Title")
+	// para identificar o nome no json
 	private String nome;
+	@SerializedName("Year")
 	private int anoDeLancamento;
 	private boolean incluidoNoPlano;
 	private double somaDasAvaliacoes;
@@ -17,6 +23,12 @@ public class Titulo implements Comparable<Titulo> {
 		this.anoDeLancamento = anoDeLancamento;
 	}
 	
+	public Titulo(TituloOmdb meuTituloOmdb) {
+        this.nome = meuTituloOmdb.title();
+        this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year());
+        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 2));
+    }
+
 	public int getTotalDeAvaliacoes() {
 		return totalDeAvaliacoes;
 	}
@@ -73,6 +85,11 @@ public class Titulo implements Comparable<Titulo> {
     @Override
     public int compareTo(Titulo outroTitulo) {
         return this.getNome().compareTo(outroTitulo.getNome());
+    }
+    
+    @Override
+    public String toString() {
+    	return "Nome: " + nome + "\nAno de Lançamento: " + anoDeLancamento + "\nDuração: " + duracaoEmMinutos + " minutos";
     }
 
 }
