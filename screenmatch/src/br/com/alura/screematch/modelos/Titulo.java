@@ -1,16 +1,13 @@
 package br.com.alura.screematch.modelos;
 
-import com.google.gson.annotations.SerializedName;
+import br.com.alura.screematch.excecao.ErroDeConversaoDeAnoException;
 
 public class Titulo implements Comparable<Titulo> {
 	// a classe vai especificar o que
 	// todos os filmes e series têm em comum
 	// dentro do sistema criado
 	
-	@SerializedName("Title")
-	// para identificar o nome no json
 	private String nome;
-	@SerializedName("Year")
 	private int anoDeLancamento;
 	private boolean incluidoNoPlano;
 	private double somaDasAvaliacoes;
@@ -25,6 +22,11 @@ public class Titulo implements Comparable<Titulo> {
 	
 	public Titulo(TituloOmdb meuTituloOmdb) {
         this.nome = meuTituloOmdb.title();
+        
+        if (meuTituloOmdb.year().length() > 4) {
+        	throw new ErroDeConversaoDeAnoException ("Não consegui converter o ano, pois tem mais de 4 caracteres");
+        }
+        
         this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year());
         this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 2));
     }
